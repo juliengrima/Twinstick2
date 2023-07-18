@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
-{	
+{
     #region Champs
+    [SerializeField] string _level = "";
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
     public void LoadGame()
     {
-        SceneManager.LoadScene("Lev1");
+        SceneManager.LoadScene(_level);
     }
     void Start()
     {
