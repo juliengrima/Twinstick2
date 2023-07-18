@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: -7281798388695956277}
   - component: {fileID: -4964912594607689525}
   - component: {fileID: 417835463558958464}
-  - component: {fileID: 7916302931598380245}
+  - component: {fileID: -6877242932392735656}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: -4964912594607689525}
   _speed: 0.1
+  _damage: 50
 --- !u!50 &-4964912594607689525
 Rigidbody2D:
   serializedVersion: 4
@@ -112,7 +113,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7916302931598380245
+--- !u!114 &-6877242932392735656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +122,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2977231995395605566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f0d796d85ab284a964aee738bddc59, type: 3}
+  m_Script: {fileID: 11500000, guid: d3323c29cc9b6486bbd1fc8c69fc32f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startHealth: 100
+  _isPlayer: 0
+  _scoreOnDeath: 100
 --- !u!1001 &3882099159593384251
 PrefabInstance:
   m_ObjectHideFlags: 0

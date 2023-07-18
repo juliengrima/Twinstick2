@@ -48,6 +48,7 @@ MonoBehaviour:
   _spawnRate: 1
   _enemy: {fileID: 2977231995395605566, guid: 0a836384c8ce4ac469c1cf43e2377f9f, type: 3}
   _enemyRoot: {fileID: 8059540741072731643}
+  enemyCount: 30
 --- !u!1 &8982547455841699309
 GameObject:
   m_ObjectHideFlags: 0
