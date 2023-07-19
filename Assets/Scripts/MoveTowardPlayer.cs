@@ -8,7 +8,6 @@ public class MoveTowardPlayer : MonoBehaviour
 
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] float _speed;
-    [SerializeField] int _damage = 10;
 
     private void Update()
     {
@@ -18,19 +17,4 @@ public class MoveTowardPlayer : MonoBehaviour
 
         _rb.MovePosition(transform.position + (dir * _speed));
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Component
-        PlayerTag tag = collision.gameObject.GetComponent<PlayerTag>();
-        if (tag != null)
-        {
-            if (collision.TryGetComponent(out Health health))
-            {
-                health.TakeDamage(_damage);
-                Destroy(gameObject);
-            }
-        }
-    }
-
 }

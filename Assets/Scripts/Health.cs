@@ -6,38 +6,18 @@ public class Health : MonoBehaviour
 {
     #region Champs
     [SerializeField] int _startHealth;
-    [SerializeField] bool _isPlayer;
     [SerializeField] int _scoreOnDeath;
+    [SerializeField] bool _isPlayer = false;
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
-    private void Reset(BulletDirection damage)
+    private void Reset()
     {
         _startHealth = 100;
-        _scoreOnDeath = 10;
-    }
-    //void Awake()
-    //{
-        
-    //}
-    //void Start()
-    //{
-        
-    //}
-
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
+        _scoreOnDeath = 100;
+    } 
     #endregion
     #region Methods
-    //void FixedUpdate (){
-        
-    //}
-    //void LateUpdate (){
-        
-    //}
 
     public void TakeDamage(int amount)
     {
@@ -45,9 +25,9 @@ public class Health : MonoBehaviour
 
         if (_startHealth <= 0)
         {
-            if (_isPlayer)
+            if (_isPlayer == true)
             {
-                ScoreManager.Instance.DeleteScore(_scoreOnDeath);
+                ScoreManager.Instance.DeleteScore(_scoreOnDeath * 2);
             }
             else
             {

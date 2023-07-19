@@ -6,16 +6,17 @@ TagManager:
   tags:
   - FxTemporaire
   - Boss
+  - PlayerLight
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Boss
-  - 
-  - 
+  - Weapon
+  - PlayerCollider
   - 
   - 
   - 
