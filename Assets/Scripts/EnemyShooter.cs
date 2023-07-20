@@ -6,7 +6,6 @@ public class EnemyShooter : MonoBehaviour
 {
     #region Champs
     [SerializeField] int _damage = 10;
-    bool _trigger = false;
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
@@ -36,12 +35,7 @@ public class EnemyShooter : MonoBehaviour
             //        break;
             //}
 
-
-            if (collision.attachedRigidbody.TryGetComponent(out LightCollider lightCollider))
-            {
-                return;
-            }
-            else if (collision.attachedRigidbody.TryGetComponent(out Health health))
+            if (collision.attachedRigidbody.TryGetComponent(out Health health))
             { 
                 health.TakeDamage(_damage);
                 Destroy(gameObject);

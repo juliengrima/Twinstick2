@@ -5,18 +5,20 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     #region Champs
+    [Header("Health")]
     [SerializeField] int _startHealth;
     [SerializeField] int _startHealthMax;
+
+    [Header("Others")]
     [SerializeField] int _scoreOnDeath;
     [SerializeField] bool _isPlayer = false;
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
-    private void Reset()
+    private void Awake()
     {
-        _startHealth = 100;
-        _startHealthMax = 100;
-        _scoreOnDeath = 100;
+        _startHealth = _startHealthMax;
+       
     }
     #endregion
     #region Methods
@@ -40,11 +42,11 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void GiveLife(int life)
+    public void GiveLife(int amount)
     {
         if (_startHealth > 0 && _startHealth < _startHealthMax)
         {
-            _startHealth += life;
+            _startHealth += amount;
             if (_startHealth > _startHealthMax)
             {
                 _startHealth = _startHealthMax;
