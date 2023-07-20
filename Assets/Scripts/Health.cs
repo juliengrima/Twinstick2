@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     #region Champs
     [SerializeField] int _startHealth;
+    [SerializeField] int _startHealthMax;
     [SerializeField] int _scoreOnDeath;
     [SerializeField] bool _isPlayer = false;
     #endregion
@@ -14,8 +15,9 @@ public class Health : MonoBehaviour
     private void Reset()
     {
         _startHealth = 100;
+        _startHealthMax = 100;
         _scoreOnDeath = 100;
-    } 
+    }
     #endregion
     #region Methods
 
@@ -37,5 +39,19 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    #endregion
+
+    public void GiveLife(int life)
+    {
+        if (_startHealth > 0 && _startHealth < _startHealthMax)
+        {
+            _startHealth += life;
+            if (_startHealth > _startHealthMax)
+            {
+                _startHealth = _startHealthMax;
+                ScoreManager.Instance.AddScore(_scoreOnDeath);
+            }
+        }
+
+        #endregion
+    }
 }
