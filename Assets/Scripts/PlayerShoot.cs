@@ -8,8 +8,8 @@ using UnityEngine.InputSystem;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] InputActionReference _shoot;
-    [SerializeField] CursorPosition _aimCursor;
-    [SerializeField] float _fireRate;
+    [SerializeField] CursorPosition _aimCursor; // AIM CURSOR POINT
+    [SerializeField] float _fireRate; 
     [SerializeField] BulletDirection _bd;
     [SerializeField] Transform _spawnPoint;
 

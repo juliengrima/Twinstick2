@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -12,6 +13,22 @@ public class Health : MonoBehaviour
     [Header("Others")]
     [SerializeField] int _scoreOnDeath;
     [SerializeField] bool _isPlayer = false;
+
+    [Header("Effects")]
+    [SerializeField] UnityEvent _effect;
+    #endregion
+    #region Coroutines
+    IEnumerator WaitCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
@@ -38,7 +55,10 @@ public class Health : MonoBehaviour
                 ScoreManager.Instance.AddScore(_scoreOnDeath);
             }
 
-            Destroy(gameObject);
+            _effect.Invoke();
+            StartCoroutine(WaitCoroutine());
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

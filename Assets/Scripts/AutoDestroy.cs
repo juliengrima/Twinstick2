@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AutoDestroy : MonoBehaviour
 {
 
     float _startLife;
+    [SerializeField] UnityEvent _effect;
 
     private void Start()
     {
@@ -17,11 +19,9 @@ public class AutoDestroy : MonoBehaviour
         
         if( Time.time > _startLife + 2 )
         {
-            Destroy( gameObject );
+            _effect.Invoke();
+            //Destroy( gameObject );
         }
-
-
-
     }
 
 }
