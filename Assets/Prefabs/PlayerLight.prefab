@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4286564060813350139}
   m_Layer: 3
   m_Name: PlayerLight
-  m_TagString: Untagged
+  m_TagString: PlayerLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,5 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed01ae1132fc4fb89382138ffcd08ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLight: {fileID: 5777520404000487074}
-  human: {fileID: 2275330052857815976, guid: 2b193d5b76f4347dbb91353faa26d63f, type: 3}

@@ -2,7 +2,7 @@
     "name": "Controls",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "PlayerGame",
             "id": "b28d872a-2b9f-47d8-8ff8-aec2ddc71a04",
             "actions": [
                 {
@@ -157,8 +157,30 @@
                 },
                 {
                     "name": "",
+                    "id": "086cce10-0764-4440-b7b5-0b6e36cfec46",
+                    "path": "<AndroidGamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c3161477-4a57-4723-a9aa-3fa5315fe1be",
                     "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7005ee01-9072-433f-806e-40022e893eeb",
+                    "path": "<AndroidGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

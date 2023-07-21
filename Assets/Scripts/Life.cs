@@ -13,13 +13,11 @@ public class Life : MonoBehaviour
         // Component
         if (collision.attachedRigidbody == null) return;
         //PlayerTag tag = collision.attachedRigidbody.gameObject.GetComponent<PlayerTag>();
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.attachedRigidbody.gameObject.CompareTag("Player"))
         {  
-            var life = collision.gameObject.GetComponent<Health>();
+            var life = collision.attachedRigidbody.gameObject.GetComponent<Health>();
             life.GiveLife(_life);
             _onPicked.Invoke();
-            //desactive le gameObject au lieu de le supprimer
-            //gameObject.SetActive(false);  
         }
     }
 }

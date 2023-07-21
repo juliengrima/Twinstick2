@@ -5,23 +5,22 @@ using UnityEngine.Events;
 
 public class AutoDestroy : MonoBehaviour
 {
-
     float _startLife;
     [SerializeField] UnityEvent _effect;
+    [SerializeField] UnityEvent _onStart;
 
     private void Start()
     {
         _startLife = Time.time;
+        _onStart.Invoke();  
     }
 
     private void Update()
     {
-        
-        if( Time.time > _startLife + 2 )
+        _effect.Invoke();
+        if ( Time.time > _startLife + 2 )
         {
-            _effect.Invoke();
-            //Destroy( gameObject );
+            Destroy( gameObject );
         }
     }
-
 }

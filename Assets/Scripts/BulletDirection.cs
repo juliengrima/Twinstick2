@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 public class BulletDirection : MonoBehaviour
 {
@@ -26,16 +27,8 @@ public class BulletDirection : MonoBehaviour
         transform.Translate(_direction * _speed);
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Component
-        EnemyTag tag = collision.gameObject.GetComponent<EnemyTag>();
-        if(tag != null)
-        {
-            Destroy(tag.gameObject);
-            Destroy(gameObject);
-        }
 
         if(collision.TryGetComponent(out Health health))
         {

@@ -29,10 +29,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 direction = _move.action.ReadValue<Vector2>();
-
-        //transform.Translate(direction);
-
         _rb.velocity = direction * _speed;
-
     }
 }

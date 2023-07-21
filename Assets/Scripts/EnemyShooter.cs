@@ -5,6 +5,11 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour
 {
     #region Champs
+    [Header("Attached")]
+    [SerializeField] GameObject _playerLight;
+    //[SerializeField] GameObject _model;
+
+    [Header("Fields")]
     [SerializeField] int _damage = 10;
     #endregion
     #region Unity LifeCycle
@@ -21,6 +26,7 @@ public class EnemyShooter : MonoBehaviour
         PlayerTag tag= collision.attachedRigidbody.gameObject.GetComponent<PlayerTag>();
         if (tag != null)
         {
+            // VERIFICATION DES COLLIDERS DU RIGIDBODY DE HUMAN
             //switch (tag)
             //{
             //    case :

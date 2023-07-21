@@ -74,7 +74,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977231995395605566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884747c54d13342e59818742e61adcec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerLight: {fileID: 5777520404000487074, guid: 1e2f1bc7a73bc4c3daf1fd612d4d7c07, type: 3}
+  _model: {fileID: 0}
   _damage: 10
 --- !u!114 &-6324314730633985594
 MonoBehaviour:

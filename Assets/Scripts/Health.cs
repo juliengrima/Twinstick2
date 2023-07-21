@@ -18,17 +18,7 @@ public class Health : MonoBehaviour
     [SerializeField] UnityEvent _effect;
     #endregion
     #region Coroutines
-    IEnumerator WaitCoroutine()
-    {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(5);
-
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
+    
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
@@ -56,9 +46,7 @@ public class Health : MonoBehaviour
             }
 
             _effect.Invoke();
-            StartCoroutine(WaitCoroutine());
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
