@@ -23,28 +23,37 @@ public class EnemyShooter : MonoBehaviour
         //EnemyTag tag = collision.gameObject.GetComponent<EnemyTag>();
         if (collision.attachedRigidbody == null) return;
 
-        PlayerTag tag= collision.attachedRigidbody.gameObject.GetComponent<PlayerTag>();
-        if (tag != null)
+        //PlayerTag tag = collision.attachedRigidbody.gameObject.GetComponent<PlayerTag>();
+
+        if (collision != null)
         {
             // VERIFICATION DES COLLIDERS DU RIGIDBODY DE HUMAN
-            //switch (tag)
-            //{
-            //    case :
-            //        break;
-            //    case :
-            //        break;
-            //    case :
-            //        break;
-            //    case :
-            //        break;
-            //    default:
-            //        break;
-            //}
+            if (collision.attachedRigidbody.gameObject.CompareTag("PlayerLight"))
+            {
+                if (collision.enabled == false)
+                {
+                    collision.enabled = true;
+                }
+            }
+            else if (collision.attachedRigidbody.gameObject.CompareTag("Player"))
+            {
+                if (collision.attachedRigidbody.TryGetComponent(out Health health))
+                {
+                    health.TakeDamage(_damage);
+                    Destroy(gameObject);
+                }
+            } 
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.attachedRigidbody == null) return;
 
-            if (collision.attachedRigidbody.TryGetComponent(out Health health))
-            { 
-                health.TakeDamage(_damage);
-                Destroy(gameObject);
+        if (collision != null)
+        {
+            if (collision.isActiveAndEnabled)
+            {
+                collision.enabled = false;
             }
         }
     }

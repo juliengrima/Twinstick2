@@ -7,6 +7,7 @@ TagManager:
   - FxTemporaire
   - Boss
   - PlayerLight
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Weapon
   - PlayerCollider
   - Life
-  - 
-  - 
+  - Wall
+  - PlayerLight
   - 
   - 
   - 
