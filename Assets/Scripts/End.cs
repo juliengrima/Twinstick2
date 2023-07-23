@@ -10,29 +10,23 @@ public class End : MonoBehaviour
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
-    public void LoadGame()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(_level);
-    }
-    void Start()
-    {
+        if (collision.attachedRigidbody.gameObject.CompareTag("Player"))
+        {
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+
+
+
+
+
+            SceneManager.LoadScene(_level);
+        } 
     }
     #endregion
     #region Methods
-    void FixedUpdate()
-    {
-
-    }
-    void LateUpdate()
-    {
-
-    }
+   
     #endregion
 }

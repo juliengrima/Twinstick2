@@ -8,6 +8,7 @@ TagManager:
   - Boss
   - PlayerLight
   - Wall
+  - Life
   layers:
   - Default
   - TransparentFX

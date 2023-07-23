@@ -5,10 +5,13 @@ using UnityEngine.Events;
 
 public class AutoDestroy : MonoBehaviour
 {
+    
     float _startLife;
+    [SerializeField] float _timelife;
+    [SerializeField] float _timeCollision;
     [SerializeField] UnityEvent _effect;
     [SerializeField] UnityEvent _onStart;
-    Collider2D _collision;
+    [SerializeField] Collider2D _collider2D;
 
     private void Start()
     {
@@ -24,9 +27,21 @@ public class AutoDestroy : MonoBehaviour
         //{
         //    Destroy(gameObject);
         //}
-        if ( Time.time > _startLife + 2 )
+        if (_timeCollision > _startLife)
         {
-            Destroy( gameObject );
+            return;
         }
+        else
+        {
+            if (Time.time > _startLife + _timeCollision)
+            {
+                _collider2D.enabled = false;
+            }
+
+            if (Time.time > _startLife + _timelife)
+            {
+                Destroy(gameObject);
+            }
+        }   
     }
 }

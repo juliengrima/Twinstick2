@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,17 +21,17 @@ public class PlayerShoot : MonoBehaviour
 
     private void ShootStart(InputAction.CallbackContext obj)
     {
-        if(ShootRoutine != null) return;
+        if (ShootRoutine != null) return;
         ShootRoutine = StartCoroutine(Shoot());
         IEnumerator Shoot()
         {
             var waiter = new WaitForSeconds(_fireRate);
-            while(true)
+            while (true)
             {
                 Instantiate(_bd, _spawnPoint.position, Quaternion.identity).SetDirection(_aimCursor);
                 yield return waiter;
             }
-        }
+        }   
     }
 
     private void ShootStop(InputAction.CallbackContext obj)
@@ -41,6 +39,5 @@ public class PlayerShoot : MonoBehaviour
         if (ShootRoutine == null) return;
         StopCoroutine(ShootRoutine);
         ShootRoutine = null;
-    }
-
+    } 
 }

@@ -12,15 +12,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] List<GameObject> _enemies;
     [SerializeField] UnityEvent _onSpawIsFinished;
 
-    //private IEnumerator Start()
-    //{
-    //    var waiter = new WaitForSeconds(_spawnRate);
-    //    while (true)
-    //    {
-    //        yield return waiter;
-    //        Instantiate(_enemy, _enemyRoot);
-    //    }
-    //}
 
     float _lastSpawnDate;       // 20
     float _randomDelay;
@@ -39,13 +30,6 @@ public class Spawner : MonoBehaviour
         }
 
         bool isFinished = true;
-        //for (int i = 0; i < _enemies.Count; i++)
-        //{
-        //    if (_enemies[i] != null)
-        //    {
-        //        isFinished = false;
-        //    }
-        //}
 
         foreach (var item in _enemies)
         {

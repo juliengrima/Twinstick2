@@ -5,10 +5,6 @@ using UnityEngine;
 public class EnemyShooter : MonoBehaviour
 {
     #region Champs
-    [Header("Attached")]
-    [SerializeField] GameObject _playerLight;
-    //[SerializeField] GameObject _model;
-
     [Header("Fields")]
     [SerializeField] int _damage = 10;
     #endregion
@@ -25,37 +21,17 @@ public class EnemyShooter : MonoBehaviour
 
         //PlayerTag tag = collision.attachedRigidbody.gameObject.GetComponent<PlayerTag>();
 
-        if (collision != null)
+        //if (tag != null)
+        if(collision.CompareTag("Player"))
         {
             // VERIFICATION DES COLLIDERS DU RIGIDBODY DE HUMAN
-            if (collision.attachedRigidbody.gameObject.CompareTag("PlayerLight"))
+            if (collision.attachedRigidbody.TryGetComponent(out Health health))
             {
-                if (collision.enabled == false)
-                {
-                    collision.enabled = true;
-                }
-            }
-            else if (collision.attachedRigidbody.gameObject.CompareTag("Player"))
-            {
-                if (collision.attachedRigidbody.TryGetComponent(out Health health))
-                {
-                    health.TakeDamage(_damage);
-                    Destroy(gameObject);
-                }
-            } 
-        }
-    }
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.attachedRigidbody == null) return;
-
-        if (collision != null)
-        {
-            if (collision.isActiveAndEnabled)
-            {
-                collision.enabled = false;
+                health.TakeDamage(_damage);
+                //Destroy(gameObject);
             }
         }
     }
+    
     #endregion
 }
