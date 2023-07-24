@@ -7,6 +7,9 @@ public class End : MonoBehaviour
 {
     #region Champs
     [SerializeField] string _level = "";
+    [SerializeField] GameObject _enemy;
+    int _score;
+
     #endregion
     #region Unity LifeCycle
     // Start is called before the first frame update
@@ -14,15 +17,14 @@ public class End : MonoBehaviour
     {
         if (collision.attachedRigidbody.gameObject.CompareTag("Player"))
         {
-
-
-
-
-
-
-
-
-            SceneManager.LoadScene(_level);
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
+            {
+                Debug.Log("ENVOYER MESSAGE !! RESTE DES FANTOMES !!");
+            }
+            else
+            {
+                SceneManager.LoadScene(_level);
+            }           
         } 
     }
     #endregion

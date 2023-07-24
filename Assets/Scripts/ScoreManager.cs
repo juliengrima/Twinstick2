@@ -22,7 +22,6 @@ public class ScoreManager : MonoBehaviour
     internal void AddScore(int amount)
     {
         _score += amount;
-        _score = score;
         _scoreText.text = _score.ToString();
         //Debug.Log($" Death count : {_score}");
     }

@@ -31,22 +31,23 @@ public class Health : MonoBehaviour
         _startHealth = _startHealthMax;
        
     }
+    private void Start()
+    {
+        _effect.Invoke();
+    }
     #endregion
     #region Methods
 
     public void TakeDamage(int amount)
     {
         _startHealth -= amount;
-        if (_isPlayer == true)
-        {
-            ScoreManager.Instance.DeleteScore(_scoreOnDeath);
-        }
+
         if (_startHealth <= 0)
         {
             if (_isPlayer == true)
             {
                 ScoreManager.Instance.DeleteScore(_scoreOnDeath * 2);
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Loosing_Menu");
             }
             else
             {

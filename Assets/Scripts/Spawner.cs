@@ -18,17 +18,6 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > _lastSpawnDate + _spawnRate + _randomDelay && enemyCount > 0)        // LSD = 25     Rate = 5            Time.time => 30
-        {
-            _lastSpawnDate = Time.time;
-
-            Instantiate(_enemy, _enemyRoot);
-            _enemies.Add(_enemy);
-
-            _randomDelay = Random.value * 5;
-            enemyCount--;
-        }
-
         bool isFinished = true;
 
         foreach (var item in _enemies)
@@ -37,14 +26,24 @@ public class Spawner : MonoBehaviour
             {
                 isFinished = false;
             }
+
         }
+
+        if (Time.time > _lastSpawnDate + _spawnRate + _randomDelay && enemyCount > 0)        // LSD = 25     Rate = 5            Time.time => 30
+        {
+            _lastSpawnDate = Time.time;
+            Vector3 offset = new Vector3(Random.Range(-10, 10), Random.Range(-10,10 ), 0);
+            Instantiate(_enemy, _enemyRoot.position + offset * 2, transform.rotation, transform);
+            _enemies.Add(_enemy);
+            _onSpawIsFinished.Invoke();
+
+            _randomDelay = Random.value * 5;
+            enemyCount--;
+        }
+
         if (isFinished)
         {
             _onSpawIsFinished.Invoke();
         }
     }
-
-
-
-
 }
