@@ -10,7 +10,10 @@ public class PlayerLight : MonoBehaviour
         // Component
         if (collision.attachedRigidbody == null) return;
  
-        //if (collision.attachedRigidbody.gameObject.GetComponent<EnemyTag>())
+        if (collision.attachedRigidbody.gameObject.GetComponent<EnemyTag>())
+        {
+            collision.attachedRigidbody.GetComponent<Health>().IsDammageable = true;
+        }
         if (collision.attachedRigidbody.CompareTag("Boss"))
         {
             EnemyController ghost = collision.GetComponent<EnemyController>();
@@ -22,17 +25,17 @@ public class PlayerLight : MonoBehaviour
         }  
     }
 
-    //public void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.attachedRigidbody == null) return;
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.attachedRigidbody == null) return;
 
-    //    EnemyTag tag = collision.attachedRigidbody.gameObject.GetComponent<EnemyTag>();
-    //    if (tag != null)
-    //    {
-    //        if (collision.isActiveAndEnabled)
-    //        {
-    //            collision.enabled = false;
-    //        }
-    //    }
-    //}
+        EnemyTag tag = collision.attachedRigidbody.gameObject.GetComponent<EnemyTag>();
+        if (tag != null)
+        {
+            
+            collision.attachedRigidbody.GetComponent<Health>().IsDammageable = false;
+            
+        }
+    }
 }
+;

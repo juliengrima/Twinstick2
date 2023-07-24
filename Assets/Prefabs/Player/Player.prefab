@@ -39,7 +39,7 @@ Transform:
   - {fileID: 6634239958086729342}
   - {fileID: 1518599130635026933}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1193566454534155768
 Rigidbody2D:
@@ -173,9 +173,22 @@ MonoBehaviour:
   _scoreOnDeath: -100
   _scoreOnLife: 50
   _isPlayer: 1
+  disableDuration: 5
   _effect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8891297334280618237, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3902128824973163598
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,9 @@ public class Health : MonoBehaviour
     [Header("Effects")]
     [SerializeField] float disableDuration = 1f;
     [SerializeField] UnityEvent _effect;
-    
+
+    public bool IsDammageable { get; set; }
+
     #endregion
     #region Coroutines
 
@@ -29,7 +31,8 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         _startHealth = _startHealthMax;
-       
+
+        if (_isPlayer) IsDammageable = true;
     }
     private void Start()
     {
@@ -40,6 +43,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (IsDammageable == false) return;
+
         _startHealth -= amount;
 
         if (_startHealth <= 0)
@@ -53,10 +58,11 @@ public class Health : MonoBehaviour
             else
             {
                 ScoreManager.Instance.AddScore(_scoreOnDeath);
+                StartCoroutine(EnableDestroyAfterDelay());
             }
 
             _effect.Invoke();
-            StartCoroutine(EnableDestroyAfterDelay());
+            
         }
     }
 

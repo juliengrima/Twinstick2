@@ -19,29 +19,36 @@ public class AutoDestroy : MonoBehaviour
         _onStart.Invoke();  
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Update()
     {
         _effect.Invoke();
 
-        //if (_collision.CompareTag("Wall"))
-        //{
-        //    Destroy(gameObject);
-        //}
+       
         if (_timeCollision > _startLife)
         {
             return;
         }
         else
         {
-            if (Time.time > _startLife + _timeCollision)
-            {
-                _collider2D.enabled = false;
-            }
+            //if (Time.time > _startLife + _timeCollision)
+            //{
+            //    _collider2D.enabled = false;
+            //}
 
             if (Time.time > _startLife + _timelife)
             {
+
                 Destroy(gameObject);
             }
-        }   
+        }
+        
     }
 }
