@@ -12,7 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Lev1.unity
     guid: e9b756adcfecc4af2bce3b42153176bf
   - enabled: 1
+    path: Assets/Scenes/Lev2.unity
+    guid: 8f1b244d72f7b4164968783df833e55c
+  - enabled: 1
     path: Assets/Scenes/Loosing_Menu.unity
     guid: e0ab3b42a82c04d85887037bcca3a7f4
+  - enabled: 1
+    path: Assets/Scenes/Win_Menu.unity
+    guid: 832bbc958d5be47e98dd8735bcabd792
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 415e15eb5334749928ac7acc200656a4, type: 2}

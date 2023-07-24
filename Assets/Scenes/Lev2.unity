@@ -6339,7 +6339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4165d0ae43971414c8886870810d0964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: Lve2
+  _level: Win_Menu
   _enemy: {fileID: 2977231995395605566, guid: 0a836384c8ce4ac469c1cf43e2377f9f, type: 3}
 --- !u!61 &465437954
 BoxCollider2D:
