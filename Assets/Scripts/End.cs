@@ -17,9 +17,10 @@ public class End : MonoBehaviour
     {
         if (collision.attachedRigidbody.gameObject.CompareTag("Player"))
         {
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
+            var boss = GameObject.FindGameObjectsWithTag("Boss").Length;
+            if (boss > 0)
             {
-                Debug.Log("ENVOYER MESSAGE !! RESTE DES FANTOMES !!");
+                Debug.Log($"!!IL RESTE {boss} FANTOMES !!");
             }
             else
             {

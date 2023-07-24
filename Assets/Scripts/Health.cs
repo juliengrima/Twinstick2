@@ -47,13 +47,15 @@ public class Health : MonoBehaviour
             if (_isPlayer == true)
             {
                 ScoreManager.Instance.DeleteScore(_scoreOnDeath * 2);
-                SceneManager.LoadScene("Loosing_Menu");
+                StartCoroutine(loadingScene());
+                
             }
             else
             {
                 ScoreManager.Instance.AddScore(_scoreOnDeath);
             }
 
+            _effect.Invoke();
             StartCoroutine(EnableDestroyAfterDelay());
         }
     }
@@ -77,8 +79,12 @@ public class Health : MonoBehaviour
     {
         Collider2D collider = gameObject.GetComponent<Collider2D>();
         collider.enabled = false;
-        _effect.Invoke();
         yield return new WaitForSeconds(disableDuration);
         Destroy(gameObject);
+    }
+    public IEnumerator loadingScene()
+    {
+        yield return new WaitForSeconds(disableDuration);
+        SceneManager.LoadScene("Loosing_Menu");
     }
 }

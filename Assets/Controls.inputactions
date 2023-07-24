@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Aim",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "747b1136-ff11-4ecf-9376-1931b1d97cd1",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Shoot",
@@ -170,17 +170,6 @@
                     "name": "",
                     "id": "c3161477-4a57-4723-a9aa-3fa5315fe1be",
                     "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7005ee01-9072-433f-806e-40022e893eeb",
-                    "path": "<AndroidGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
