@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLight : MonoBehaviour
-{ 
-    ////quand enemy rentre dans le collider 
+{
+
+
+    //quand enemy rentre dans le collider 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         // Component
         if (collision.attachedRigidbody == null) return;
- 
+
         if (collision.attachedRigidbody.gameObject.GetComponent<EnemyTag>())
         {
             collision.attachedRigidbody.GetComponent<Health>().IsDammageable = true;
@@ -22,7 +24,7 @@ public class PlayerLight : MonoBehaviour
                 // Le fantôme est touché par la lumière, appelez la méthode "HitByLight"
                 ghost.HitByLight();
             }
-        }  
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -32,10 +34,9 @@ public class PlayerLight : MonoBehaviour
         EnemyTag tag = collision.attachedRigidbody.gameObject.GetComponent<EnemyTag>();
         if (tag != null)
         {
-            
+
             collision.attachedRigidbody.GetComponent<Health>().IsDammageable = false;
-            
+
         }
     }
 }
-;

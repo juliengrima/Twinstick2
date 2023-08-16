@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class AutoDestroy : MonoBehaviour
-{
-    
+{ 
     float _startLife;
     [SerializeField] float _timelife;
     [SerializeField] float _timeCollision;

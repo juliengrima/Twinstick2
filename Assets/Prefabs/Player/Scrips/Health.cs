@@ -27,6 +27,12 @@ public class Health : MonoBehaviour
 
     #endregion
     #region Unity LifeCycle
+    private void Reset()
+    {
+        _startHealth = 100;
+        _startHealthMax = 100;
+        _scoreOnDeath = 200;
+    }
     // Start is called before the first frame update
     private void Awake()
     {
@@ -74,7 +80,7 @@ public class Health : MonoBehaviour
             if (_startHealth > _startHealthMax)
             {
                 _startHealth = _startHealthMax;
-                ScoreManager.Instance.AddScore(_scoreOnLife);
+                //ScoreManager.Instance.AddScore(_scoreOnLife);
             }
         }
 
@@ -91,6 +97,6 @@ public class Health : MonoBehaviour
     public IEnumerator loadingScene()
     {
         yield return new WaitForSeconds(disableDuration);
-        SceneManager.LoadScene("Loosing_Menu");
+        SceneManager.GetActiveScene();
     }
 }
